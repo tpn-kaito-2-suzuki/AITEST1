@@ -1,18 +1,69 @@
-<!-- テスト　-->
+html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduHub 利用申し込み</title>
-    <!-- アプリケーションのスタイルシートを読み込む -->
-    <link rel="stylesheet" href="/build/bundle.css">
+    <title>AITEST1 テストページ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        #changeColorBtn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #changeColorBtn:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <!-- Svelteアプリケーションのマウントポイント -->
-    <div id="app"></div>
+    <div class="container">
+        <h1>AITEST1 プロジェクトへようこそ</h1>
+        <p>これは GitHub Pages を使用して公開されたテストページです。</p>
+        <p>現在の日時: <span id="currentDateTime"></span></p>
+        <button id="changeColorBtn">背景色を変更</button>
+    </div>
 
-    <!-- アプリケーションのJavaScriptバンドルを読み込む -->
-    <script src="/build/bundle.js"></script>
+    <script>
+        // 現在の日時を表示
+        function updateDateTime() {
+            var now = new Date();
+            document.getElementById('currentDateTime').textContent = now.toLocaleString();
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+
+        // 背景色を変更するボタンの機能
+        document.getElementById('changeColorBtn').addEventListener('click', function() {
+            var randomColor = Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = "#" + randomColor;
+        });
+    </script>
 </body>
 </html>
